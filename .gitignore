@@ -172,3 +172,4 @@ temp
 nginx/certs
 nginx/sites
 projects/*
+projects.code-workspace
