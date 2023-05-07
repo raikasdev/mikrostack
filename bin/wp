@@ -5,6 +5,7 @@ echo "ICAgICAgICAgICAgXyAgICAgICAgICAgICBfICAgIAogICAgICAgICAgIHwgfCAgICAgICAgIC
 echo ""
 echo ""
 root_path=$( cd "$(dirname "${BASH_SOURCE[0]}")"/..; pwd -P )
+# TODO: allow usage also outside of the dir
 if [[ $root_path != $PWD ]]; then
   echo "Please run the command inside the mikrostack directory"
   exit
