@@ -11,16 +11,7 @@ export const StartCommand: CommandModule = {
   command: "start",
   aliases: ["up"],
   describe: "Starts the μstack environment.",
-  builder: (args) => {
-    return args.option("no_theme", {
-      boolean: true,
-      alias: "n",
-      description: "Don't install starter theme",
-    });
-  },
   async handler(args) {
-    console.log(
-      `Adding test.test to /etc/hosts. ` + chalk.black.bgGreen("Installed")
-    );
+    // TODO: implement
   },
 };

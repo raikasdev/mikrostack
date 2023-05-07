@@ -364,7 +364,8 @@ core install:
 
     // Let's add it to code workspace
     const workspaceFile = Bun.file(resolve(rootDir, "projects.code-workspace"));
-    const workspace = await workspaceFile.json();
+    const workspace =
+      workspaceFile.size !== 0 ? await workspaceFile.json() : { folders: [] };
     workspace.folders.push({
       name: `🖌️ ${siteId}`,
       path: `./projects/${siteId}/web/app/themes/${siteId}`,
