@@ -4,6 +4,11 @@
 echo "ICAgICAgICAgICAgXyAgICAgICAgICAgICBfICAgIAogICAgICAgICAgIHwgfCAgICAgICAgICAgfCB8ICAgCiAgXyAgIF8gX19ffCB8XyBfXyBfICBfX198IHwgX18KIHwgfCB8IC8gX198IF9fLyBfYCB8LyBfX3wgfC8gLwogfCB8X3wgXF9fIFwgfHwgKF98IHwgKF9ffCAgIDwgCiB8IC5fLF98X19fL1xfX1xfXyxffFxfX198X3xcX1wKIHwgfCAgICAgICAgICAgICAgICAgICAgICAgICAgIAogfF98ICAgICAgICAgICAgICAgICAgICAgICAgICAg"|base64 -d
 echo ""
 echo ""
+root_path=$( cd "$(dirname "${BASH_SOURCE[0]}")"/..; pwd -P )
+if [[ $root_path != $PWD ]]; then
+  echo "Please run the command inside the mikrostack directory"
+  exit
+fi
 
 # Check if user has dependencies
 # Bun
@@ -43,8 +48,6 @@ then
     esac
 fi
 
-parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-
 # Composer
 if ! command -v composer &> /dev/null
 then
@@ -52,6 +55,8 @@ then
     echo "Please install PHP8.2 and Composer before running this script."
     exit
 fi
+
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 # All good, run the bun script
 bun $parent_path/../src/app.ts $@
