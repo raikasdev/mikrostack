@@ -1,0 +1,31 @@
+version: "3.6"
+
+volumes:
+  database: null
+
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/sites:/etc/nginx/sites-enabled
+      - ./projects:/var/www/wordpress
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - NGINX_PORT=80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  db:
+    image: mariadb:10.9.5
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - "3306:3306" # Exposing also to host for possible tinkering (phpMyAdmin...)
+    environment:
+      MYSQL_ROOT_PASSWORD: mikrostack
+      MYSQL_DATABASE: mikrostack
+      MYSQL_USER: mikroni
+      MYSQL_PASSWORD: mikroni

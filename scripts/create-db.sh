@@ -1,0 +1,1 @@
+docker compose exec -d db mysql -u root -p$1 -e "DROP DATABASE IF EXISTS $2;CREATE DATABASE $2;"

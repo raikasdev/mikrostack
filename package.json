@@ -1,0 +1,16 @@
+{
+  "name": "mikrostack",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "src/app.ts",
+  "dependencies": {
+    "bun-promptx": "^0.1.9",
+    "chalk": "^5.2.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.24",
+    "bun-types": "^0.5.8",
+    "typescript": "^5.0.4"
+  }
+}
