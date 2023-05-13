@@ -1,6 +1,9 @@
 
 # μstack (mikrostack)
 
+**Notice!**
+Some parts of this will be rewritten. Using Docker to implement this seems to cause some permission issues with the files, and also caused some other problems.
+
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 A [Bun](https://bun.sh)-powered WordPress toolkit for setupping new projects and themes inspired by [Trellis](https://roots.io/trellis/) and [dudestack](https://github.com/digitoimistodude/dudestack).
