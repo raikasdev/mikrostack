@@ -1,0 +1,24 @@
+#!/bin/bash
+# Mikrostack WordPress project init script on a native LEMP stack.
+# https://github.com/raikasdev/mikrostack, licensed under MIT.
+
+MIKROSTACK_VERSION="1.0.0" 
+
+# Rise to root
+if ! [[ $UID -eq 0 ]]; then
+  echo "This command requires root. Rerunning command with sudo..."
+  exec sudo "$0" "$@"
+fi
+
+export SCRIPT_PATH=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+echo "Stage 1"
+for f in $SCRIPT_PATH/preparations/*; do echo $f; done
+echo "Stage 2"
+
+# Preparations
+for f in $SCRIPT_PATH/preparations/*; do echo $f; source $f; done
+echo "Stage 3"
+
+# Start running
+for f in $SCRIPT_PATH/stages/*; do source $f; done

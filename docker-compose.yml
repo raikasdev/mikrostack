@@ -10,6 +10,7 @@ services:
       - ./nginx/certs:/etc/nginx/certs
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/sites:/etc/nginx/sites-enabled
+      - ./nginx/supervisor-conf.d:/etc/supervisor/conf.d
       - ./projects:/var/www/wordpress
     ports:
       - "80:80"
